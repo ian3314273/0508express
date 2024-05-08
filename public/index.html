@@ -1,0 +1,23 @@
+<html>
+
+<head>
+  <title>Express</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <h1>Express</h1>
+  <p>Welcome to Express</p>
+  <p id="hello">ffff</p>
+  <!-- Use fetch async and await to fetch string from localhost:3000/hello and show the website-->
+  <script>
+    async function getHello() {
+      const  response = await fetch('/hello');
+      const data = await response.text();
+      document.getElementById('hello').innerText = data;
+    }
+    getHello();
+  </script>
+</body>
+
+</html>
