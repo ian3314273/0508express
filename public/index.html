@@ -18,6 +18,26 @@
     }
     getHello();
   </script>
+  <p id="json"></p>
+  <!-- Use fetch_async to fetch id and name from http://localhost/API/json and show the website-->
+  <script>
+    async function fetchjson(){
+      const response = await fetch('/API/json');
+      const data = await response.json();
+      document.getElementById('json').textContent = `id: ${data.id}, name: ${data.name}`;
+    }
+    fetchjson();
+  </script>
+  <img id="imgs"/>
+  <script>
+    async function fetchimg(){
+      const response = await fetch('/API/img');
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      document.getElementById('imgs').src = url;
+    }
+    fetchimg();
+  </script>
 </body>
 
 </html>

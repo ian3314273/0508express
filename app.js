@@ -25,7 +25,22 @@ app.get('/hello', (req, res) => {
 app.get('/API/json', (req, res) =>{
     res.json({
         id:1,
-        name: 'Ben'
+        name: 'Ian'
     });
+});
+app.get('/API/img', (req, res)=>{
+    res.sendFile('C:/Users/User/WebstormProjects/0508express/image.webp');
+});
+app.get('/method', (req, res) => {
+    let data =  req.query;
+    console.log(data);
+    console.log(data.team);
+    res.send('get data');
+});
+app.post('/method', (req, res) => {
+    let data = req.body;
+    console.log(data);
+    console.log(data.team);
+    res.send('post' + data.text);
 });
 module.exports = app;
